@@ -1,17 +1,953 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="km">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>M Coffee - Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Suwannaphum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6f4e37 0%, #3e2723 100%);
+            color: #5d4037;
+            font-family: 'Suwannaphum', serif;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .menu-card {
+            max-width: 1000px;
+            width: 100%;
+            background-color: #fff8e1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #5d4037, #8d6e63);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #d7ccc8;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .title-container {
+            text-align: left;
+        }
+        
+        h1 {
+            font-family: 'Koulen', cursive;
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #d7ccc8;
+            margin-bottom: 10px;
+        }
+        
+        .address {
+            font-size: 1rem;
+            color: #bcaaa4;
+            background-color: rgba(93, 64, 55, 0.7);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .menu-content {
+            padding: 30px;
+        }
+        
+        .menu-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .section-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: #6d4c41;
+        }
+        
+        .section-title {
+            font-family: 'Koulen', cursive;
+            font-size: 2rem;
+            color: #5d4037;
+            border-bottom: 3px solid #d7ccc8;
+            padding-bottom: 5px;
+            flex-grow: 1;
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .item-name {
+            font-family: 'Koulen', cursive;
+            font-size: 1.4rem;
+            color: #5d4037;
+            flex-grow: 1;
+        }
+        
+        .item-price {
+            font-family: 'Koulen', cursive;
+            font-size: 1.4rem;
+            color: #8d6e63;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+        
+        .item-description {
+            font-size: 1rem;
+            color: #8d6e63;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .item-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background: #8d6e63;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity {
+            margin: 0 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .add-to-cart {
+            background: #5d4037;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-family: 'Suwannaphum', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background: #8d6e63;
+        }
+        
+        .cart-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        
+        .cart-icon {
+            position: relative;
+            background: #5d4037;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff9800;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 350px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cart-sidebar.open {
+            right: 0;
+        }
+        
+        .cart-header {
+            background: #5d4037;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cart-title {
+            font-family: 'Koulen', cursive;
+            font-size: 1.5rem;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .cart-items {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-info {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: #8d6e63;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-item-quantity button {
+            width: 25px;
+            height: 25px;
+            background: #8d6e63;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .cart-item-quantity span {
+            margin: 0 10px;
+        }
+        
+        .remove-item {
+            background: none;
+            border: none;
+            color: #d32f2f;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            background: #5d4037;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Suwannaphum', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .checkout-btn:hover {
+            background: #8d6e63;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 40px 20px;
+            color: #8d6e63;
+        }
+        
+        .customer-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        
+        .customer-info h4 {
+            margin-bottom: 10px;
+            font-family: 'Koulen', cursive;
+            color: #5d4037;
+        }
+        
+        .customer-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Suwannaphum', serif;
+        }
+        
+        .footer {
+            background-color: #5d4037;
+            padding: 25px;
+            text-align: center;
+            color: #d7ccc8;
+        }
+        
+        .footer-address {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .contact-item {
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-icon {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #8d6e63;
+            border-radius: 50%;
+            margin: 0 10px;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: #ffcc80;
+            color: #5d4037;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .title-container {
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+            }
+            
+            .contact-item {
+                margin: 5px 0;
+            }
+            
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .cart-container {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
 </head>
-<style>
-    img{
-        display: block;
-
-    }
-</style>
 <body>
-    <center><img width="100%" src="./coffee.jpg" alt=""></center>
+    <div class="menu-card">
+        <div class="header">
+            <div class="header-pattern"></div>
+            <div class="logo-container">
+                <div class="logo">
+                    <!-- Replace with your actual logo image path -->
+                    <img src="./logo.jpg" alt="M Coffee Logo">
+                </div>
+                <div class="title-container">
+                    <h1>M - Coffee</h1>
+                    <p class="tagline">កាហ្វេឆ្ងាញ់ពិសារសម្រាប់ថ្ងៃថ្មី</p>
+                    <div class="address">ផ្ទះលេខ126Eo, ផ្លូវត្រសក់ផ្អែម(63) , កែងផ្លូវ242 ខណ្ឌ ដូនពេញ ,រាជធានីភ្នំពេញ</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu-content">
+            <!-- Coffee Section -->
+            <div class="menu-section">
+                <img width="100%" src="./menu.png" alt="">
+                <div class="section-header">
+                    <div class="section-icon">☕</div>
+                    <h2 class="section-title">កាហ្វេ - COFFEE</h2>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item" data-id="1" data-name="កាហ្វេទឹកដោះគោទឹកកក" data-price="3000">
+                        <div class="item-header">
+                            <div class="item-name">កាហ្វេទឹកដោះគោទឹកកក</div>
+                            <div class="item-price">៣០០០៛</div>
+                        </div>
+                        <div class="item-description">Ice Coffee Condensed milk</div>
+                        <div class="item-controls">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart">បញ្ចូលទៅកន្ត្រក</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="2" data-name="កាហ្វេខ្មៅ" data-price="3000">
+                        <div class="item-header">
+                            <div class="item-name">កាហ្វេខ្មៅ</div>
+                            <div class="item-price">៣០០០៛</div>
+                        </div>
+                        <div class="item-description">Americano</div>
+                        <div class="item-controls">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart">បញ្ចូលទៅកន្ត្រក</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="3" data-name="កាហ្វេគ្រីម" data-price="3000">
+                        <div class="item-header">
+                            <div class="item-name">កាហ្វេគ្រីម</div>
+                            <div class="item-price">៣០០០៛</div>
+                        </div>
+                        <div class="item-description">Cream Coffee</div>
+                        <div class="item-controls">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart">បញ្ចូលទៅកន្ត្រក</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tea Section -->
+            <div class="menu-section">
+                <div class="section-header">
+                    <div class="section-icon">🍵</div>
+                    <h2 class="section-title">តែ - TEA</h2>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item" data-id="4" data-name="តែបៃតង" data-price="3000">
+                        <div class="item-header">
+                            <div class="item-name">តែបៃតង</div>
+                            <div class="item-price">៣០០០៛</div>
+                        </div>
+                        <div class="item-description">Green tea</div>
+                        <div class="item-controls">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart">បញ្ចូលទៅកន្ត្រក</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="5" data-name="តែក្រហម" data-price="3000">
+                        <div class="item-header">
+                            <div class="item-name">តែក្រហម</div>
+                            <div class="item-price">៣០០០៛</div>
+                        </div>
+                        <div class="item-description">Red tea</div>
+                        <div class="item-controls">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart">បញ្ចូលទៅកន្ត្រក</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Juice Section -->
+            <div class="menu-section">
+                <div class="section-header">
+                    <div class="section-icon">🥤</div>
+                    <h2 class="section-title">ទឹកផ្លែឈើ - JUICE</h2>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item" data-id="6" data-name="តែក្រូចឆ្មារ" data-price="3000">
+                        <div class="item-header">
+                            <div class="item-name">តែក្រូចឆ្មារ</div>
+                            <div class="item-price">៣០០០៛</div>
+                        </div>
+                        <div class="item-description">Lemon tea</div>
+                        <div class="item-controls">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart">បញ្ចូលទៅកន្ត្រក</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="7" data-name="ផាសស្សិនសូដា" data-price="3000">
+                        <div class="item-header">
+                            <div class="item-name">ផាសស្សិនសូដា</div>
+                            <div class="item-price">៣០០០៛</div>
+                        </div>
+                        <div class="item-description">Passion Soda & milk</div>
+                        <div class="item-controls">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="add-to-cart">បញ្ចូលទៅកន្ត្រក</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-address">ផ្ទះលេខ126Eo, ផ្លូវត្រសក់ផ្អែម(63) , កែងផ្លូវ242 ខណ្ឌ ដូនពេញ ,រាជធានីភ្នំពេញ</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>012 345 678</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🕒</span>
+                    <span>ម៉ោង 6:00 - 21:00 រាល់ថ្ងៃ</span>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link">f</a>
+                <a href="#" class="social-link">t</a>
+                <a href="#" class="social-link">ig</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Icon -->
+    <div class="cart-container">
+        <div class="cart-icon" id="cartIcon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </div>
+    </div>
+    
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">កន្ត្រកទិញឥវ៉ាន់</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">
+                <p>កន្ត្រកទទេ</p>
+                <p>សូមបន្ថែមឥវ៉ាន់ពីម៉ឺនុយ</p>
+            </div>
+        </div>
+        <div class="customer-info">
+            <h4>ព័ត៌មានអតិថិជន</h4>
+            <input type="text" class="customer-input" id="customerName" placeholder="ឈ្មោះ">
+            <input type="text" class="customer-input" id="customerPhone" placeholder="លេខទូរស័ព្ទ">
+            <input type="text" class="customer-input" id="customerAddress" placeholder="អាសយដ្ឋាន (បើសិនចង់អោយដឹកជញ្ជូន)">
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>សរុប:</span>
+                <span id="cartTotal">០៛</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">បញ្ជាទិញ</button>
+        </div>
+    </div>
+
+    <script>
+        // Cart functionality
+        let cart = [];
+        const cartIcon = document.getElementById('cartIcon');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartTotal = document.getElementById('cartTotal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const customerName = document.getElementById('customerName');
+        const customerPhone = document.getElementById('customerPhone');
+        const customerAddress = document.getElementById('customerAddress');
+        
+        // Open cart sidebar
+        cartIcon.addEventListener('click', () => {
+            cartSidebar.classList.add('open');
+        });
+        
+        // Close cart sidebar
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.remove('open');
+        });
+        
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const menuItem = e.target.closest('.menu-item');
+                const id = menuItem.dataset.id;
+                const name = menuItem.dataset.name;
+                const price = parseInt(menuItem.dataset.price);
+                const quantity = parseInt(menuItem.querySelector('.quantity').textContent);
+                
+                addToCart(id, name, price, quantity);
+                
+                // Reset quantity to 1 after adding to cart
+                menuItem.querySelector('.quantity').textContent = '1';
+            });
+        });
+        
+        // Quantity controls
+        document.querySelectorAll('.quantity-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const menuItem = e.target.closest('.menu-item');
+                const quantityElement = menuItem.querySelector('.quantity');
+                let quantity = parseInt(quantityElement.textContent);
+                
+                if (e.target.classList.contains('plus')) {
+                    quantity++;
+                } else if (e.target.classList.contains('minus') && quantity > 1) {
+                    quantity--;
+                }
+                
+                quantityElement.textContent = quantity;
+            });
+        });
+        
+        // Add item to cart
+        function addToCart(id, name, price, quantity) {
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id,
+                    name,
+                    price,
+                    quantity
+                });
+            }
+            
+            updateCart();
+            cartSidebar.classList.add('open');
+        }
+        
+        // Update cart display
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart items
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <p>កន្ត្រកទទេ</p>
+                        <p>សូមបន្ថែមឥវ៉ាន់ពីម៉ឺនុយ</p>
+                    </div>
+                `;
+            } else {
+                cartItems.innerHTML = '';
+                cart.forEach(item => {
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.className = 'cart-item';
+                    cartItemElement.innerHTML = `
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">${formatPrice(item.price)}</div>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="decrease">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="increase">+</button>
+                            <button class="remove-item"><i class="fas fa-trash"></i></button>
+                        </div>
+                    `;
+                    
+                    // Add event listeners for quantity controls in cart
+                    const decreaseBtn = cartItemElement.querySelector('.decrease');
+                    const increaseBtn = cartItemElement.querySelector('.increase');
+                    const removeBtn = cartItemElement.querySelector('.remove-item');
+                    
+                    decreaseBtn.addEventListener('click', () => {
+                        if (item.quantity > 1) {
+                            item.quantity--;
+                        } else {
+                            cart = cart.filter(cartItem => cartItem.id !== item.id);
+                        }
+                        updateCart();
+                    });
+                    
+                    increaseBtn.addEventListener('click', () => {
+                        item.quantity++;
+                        updateCart();
+                    });
+                    
+                    removeBtn.addEventListener('click', () => {
+                        cart = cart.filter(cartItem => cartItem.id !== item.id);
+                        updateCart();
+                    });
+                    
+                    cartItems.appendChild(cartItemElement);
+                });
+            }
+            
+            // Update total price
+            const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            cartTotal.textContent = formatPrice(totalPrice);
+        }
+        
+        // Format price with Khmer Riel symbol
+        function formatPrice(price) {
+            return price.toLocaleString('km-KH') + '៛';
+        }
+        
+        // Checkout button
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('សូមបន្ថែមឥវ៉ាន់ទៅក្នុងកន្ត្រកមុនពេលបញ្ជាទិញ!');
+                return;
+            }
+            
+            // Validate customer information
+            if (!customerName.value.trim()) {
+                alert('សូមបំពេញឈ្មោះរបស់អ្នក!');
+                customerName.focus();
+                return;
+            }
+            
+            if (!customerPhone.value.trim()) {
+                alert('សូមបំពេញលេខទូរស័ព្ទរបស់អ្នក!');
+                customerPhone.focus();
+                return;
+            }
+            
+            // Create order summary
+            const orderSummary = cart.map(item => 
+                `${item.name} x ${item.quantity} - ${formatPrice(item.price * item.quantity)}`
+            ).join('\n');
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Create message for Telegram
+            const telegramMessage = `🛒 *ការបញ្ជាទិញថ្មី* 🛒
+            
+👤 *ព័ត៌មានអតិថិជន:*
+ឈ្មោះ: ${customerName.value}
+ទូរស័ព្ទ: ${customerPhone.value}
+អាសយដ្ឋាន: ${customerAddress.value || 'មិនបានបញ្ជាក់'}
+
+📋 *ការបញ្ជាទិញ:*
+${orderSummary}
+
+💰 *សរុប: ${formatPrice(total)}*
+
+⏰ *ពេលវេលា:* ${new Date().toLocaleString('km-KH')}
+🏪 *M Coffee* - ផ្ទះលេខ126Eo, ផ្លូវត្រសក់ផ្អែម(63) , កែងផ្លូវ242 ខណ្ឌ ដូនពេញ ,រាជធានីភ្នំពេញ`;
+
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(telegramMessage);
+            
+            // Telegram bot URL
+            const telegramBotURL = `https://t.me/Marynhoeb?text=${encodedMessage}`;
+            
+            // Open Telegram with the message
+            window.open(telegramBotURL, '_blank');
+            
+            // Show confirmation
+            alert(`បញ្ជាទិញជោគជ័យ!\n\nការបញ្ជាទិញរបស់អ្នកត្រូវបានផ្ញើទៅ Telegram\n\nសូមរង់ចាំការបញ្ជាក់ពីយើងខ្ញុំ!`);
+            
+            // Clear cart after checkout
+            cart = [];
+            updateCart();
+            customerName.value = '';
+            customerPhone.value = '';
+            customerAddress.value = '';
+            cartSidebar.classList.remove('open');
+        });
+    </script>
 </body>
 </html>
